@@ -3,7 +3,7 @@
     import logoefood from "../../assets/logotipo.jpg"; // ajuste o caminho
     import instagram from "../../assets/instagram.jpg";
     import facebook from "../../assets/Facebook.jpg";
-    import twitter from "../../assets/twitter.jpg";
+    import twitter from "../../assets/Twitter.jpg";
 
     const Footer: React.FC = () => {
     return (
