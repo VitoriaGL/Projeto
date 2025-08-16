@@ -1,24 +1,44 @@
-    import { Card, Info, ImageContainer } from "./styles";
+    import { useState } from "react";
+    import { Card, ImageContainer, Info, ButtonComprar } from "./styles";
+    import Modal from "../ProductModal";
 
     interface ProductProps {
+    id: number;
     nome: string;
     descricao: string;
-    preco: string;
+    preco: number;
     imagem: string;
     }
 
-    const ProductCard = ({ nome, descricao, preco, imagem }: ProductProps) => {
+    const ProductCard = ({  nome, descricao, preco, imagem }: ProductProps) => {
+    const [modalAberta, setModalAberta] = useState(false);
+
     return (
+        <>
         <Card>
-        <ImageContainer>
+            <ImageContainer>
             <img src={imagem} alt={nome} />
-        </ImageContainer>
-        <Info>
+            </ImageContainer>
+            <Info>
             <h3>{nome}</h3>
             <p>{descricao}</p>
-            <span>{preco}</span>
-        </Info>
+            <span>R$ {preco.toFixed(2)}</span>
+            </Info>
+            <ButtonComprar onClick={() => setModalAberta(true)}>
+            Comprar
+            </ButtonComprar>
         </Card>
+
+        {modalAberta && (
+            <Modal
+            imagem={imagem}
+            nome={nome}
+            descricao={descricao}
+            preco={preco}
+            onClose={() => setModalAberta(false)}
+            />
+        )}
+        </>
     );
     };
 

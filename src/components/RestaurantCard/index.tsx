@@ -1,5 +1,5 @@
-    import { Card, Image, Title, Description, Button } from "./styles";
-    import { RestauranteType } from '../../data/dados';
+    import { Card, Image, Title, Description, Button} from "./styles";
+    import { RestauranteType } from '../../data/Types';
 
     interface Props {
     restaurante: RestauranteType;
